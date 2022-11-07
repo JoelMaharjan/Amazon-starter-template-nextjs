@@ -2,24 +2,47 @@ import Image from "next/image"
 import { useState } from "react"
 import { StarIcon } from "@heroicons/react/solid";
 import Currency from 'react-currency-formatter';
+import { useDispatch } from "react-redux";
+import { addToBasket } from "../slices/basketSlice";
+import { useRouter } from "next/router";
 
 const MIN_RATING = 1;
 const MAX_RATING = 5;
 
 function Product({id, title, price, description, category, image}) {
+
+  const router = useRouter()
+  const dispatch = useDispatch()
   const [ratings] = useState(
     Math.floor(Math.random() * (MAX_RATING - MIN_RATING + 1)) + MIN_RATING
   );
 
-  const [hasPrime] = useState(Math.random() > 0.5);
+  const [hasPrime] = useState(Math.random() > 0.5)
+
+  const addItemsToBasket= ()=>{
+    const product ={
+      id, 
+      title, 
+      price, 
+      description,
+      category, 
+      image,
+      ratings,
+      hasPrime,
+    };
+    //sending an product to an action to the Redux store ... the basket
+    dispatch(addToBasket(product));
+  }
 
   return (
     <div className="relative flex flex-col m-5  bg-white p-10 z-30">
       <p className="absolute top-2 right-2 text-xs italic text-gray-500">{category}</p>
 
-      <Image src={image} width={200} height={200} objectFit="contain" />
-
-
+      <Image
+        className="cursor-pointer"
+        onClick= {() => router.push(`/products/${id}`)}
+        src={image} width={200} height={200} objectFit="contain" />
+      
       <h4>{title}</h4>
 
       <div className="flex">
@@ -42,7 +65,7 @@ function Product({id, title, price, description, category, image}) {
         </div>
       )}
 
-      <button className="button">Add to Basket</button>
+      <button onClick={addItemsToBasket} className="mt-auto button">Add to Basket</button>
     </div>
   )
 }

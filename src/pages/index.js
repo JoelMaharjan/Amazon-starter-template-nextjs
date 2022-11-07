@@ -4,6 +4,7 @@ import Banner from "../Component/Banner";
 import ProductFeed from "../Component/ProductFeed";
 
 export default function Home({ products }) {
+  console.log({products})
   return (
     <div className="bg-gray-100">
       <Head>
@@ -20,6 +21,8 @@ export default function Home({ products }) {
     </div>
   );
 }
+
+
 
 export async function getServerSideProps(context){
   const products = await fetch("https://fakestoreapi.com/products").then(

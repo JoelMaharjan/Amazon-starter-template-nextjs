@@ -1,13 +1,11 @@
 module.exports = {
-  // mode: "jit",
+  mode:'jit',
   content: [
     './pages/**/*.{html,js}',
     './components/**/*.{html,js}',
   ],
-  purge: [
-    "./src/pages/**/*.{js,ts,jsx,tsx}",
-    "./src/components/**/*.{js,ts,jsx,tsx}",
-  ],
+  purge: ["./public/**/*.html", "./src/**/*.{js,jsx,ts,tsx,vue}"],
+
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
