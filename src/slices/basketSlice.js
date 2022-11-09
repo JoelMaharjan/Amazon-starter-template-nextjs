@@ -15,6 +15,9 @@ export const basketSlice = createSlice({
       const index = state.items.findIndex(
         (basketItem) => basketItem.id === action.payload.id
     );
+
+
+    
     
 
     let newBasket = [...state.items]
@@ -37,7 +40,6 @@ export const { addToBasket, removeFromBasket, selectFromProducts } = basketSlice
 // Selectors - This is how we pull information from the Global store slice
 export const selectItems = (state) => state.basket.items;
 export const selectTotal = (state) => state.basket.items.reduce((total, item) => total + item.price, 0);
-export const selectProducts = (state) => state.items;
 
 
 

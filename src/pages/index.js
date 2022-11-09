@@ -2,6 +2,7 @@ import Head from "next/head";
 import Header from "../Component/Header";
 import Banner from "../Component/Banner";
 import ProductFeed from "../Component/ProductFeed";
+import ProductDetailsComponent from "../Component/ProductDetailsComponent";
 
 export default function Home({ products }) {
   console.log({products})
@@ -17,6 +18,7 @@ export default function Home({ products }) {
         <Banner />
 
         <ProductFeed products={products} />
+
       </main>
     </div>
   );

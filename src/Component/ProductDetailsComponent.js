@@ -1,36 +1,28 @@
-import { StarIcon } from "@heroicons/react/solid";
-import Currency from 'react-currency-formatter'
-import Image from "next/image";
-import ProductDetails from "../pages/ProductDetails";
-
-function ProductDetailsComponent({
-    id,
-    title,
-    ratings,
-    price,
-    description,
-    category,
-    image,
-    hasPrime,
-}) {
+// import { StarIcon } from "@heroicons/react/solid";
 
 
+// function ProductDetailsComponent({ products }) {
 
-
-  return (
-    <div>
-            <div className="grid grid-cols-5">
-                <Image 
-                    src={image}
-                    height={400}
-                    width={400}
-                    objectFit="contain"
-                />
-
+//   return (
+//     <div>
+//             <div className="grid grid-flow-row-dense md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:-mt-52 mx-auto">
+//             {products
+//             .slice(0,4)
+//             .map(({id, title, price, description, category, image }) => (
+//         <Product 
+//           key={id} 
+//           id={id}
+//           title={title}
+//           price={price}
+//           description={description}
+//           category={category}
+//           image={image}
+//         />
+//       ))}
                
-            </div>
-        </div>
-    );
-}
+//             </div>
+//         </div>
+//     );
+// }
 
-export default ProductDetailsComponent
+// export default ProductDetailsComponent
